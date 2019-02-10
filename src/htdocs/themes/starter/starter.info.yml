@@ -1,0 +1,24 @@
+name: Starter
+description: A theme based on core stark which uses bootstrap, ready for subthemes.
+screenshot: screenshot.png
+core: 8.x
+# version: VERSION
+engine: twig
+type: theme
+base theme: stark
+
+regions:
+  header: 'Header'
+  banner: 'Banner'
+  content: 'Content'
+  footer: 'Footer'
+
+ckeditor_stylesheets:
+  - starter.style.min.css
+
+libraries:
+  - starter/base
+
+libraries-override:
+  system/base: false
+  classy/node: false

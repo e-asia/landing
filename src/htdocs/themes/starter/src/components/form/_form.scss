@@ -1,0 +1,56 @@
+form {
+  label {
+    z-index: 1;
+    position: relative;
+    @include font-source($FormLabelFontFamily, $FormLabelFontSize, $FormLabelColor);
+  }
+
+  .form-required {
+    z-index: 1;
+    position: relative;
+  }
+
+  .form-control {
+    background: $FormControlBackground;
+    border: 0;
+    border-bottom: 1px solid $FormControlBorderColor;
+    border-radius: 5px;
+    padding: 1rem 1.5rem;
+
+    &:focus {
+      border: 0;
+      border-bottom: 1px solid $FormControlBorderColor;
+      box-shadow: none;
+      background: $FormControlBackground;
+    }
+    &.form-select {
+      &:focus {
+        border: 1px solid $purple;
+      }
+    }
+
+    &.form-textarea {
+      border: 0;
+    }
+  }
+  select::-ms-expand {
+    display: none;
+  }
+
+  .checkboxes--wrapper {
+    .form-item {
+      @extend .d-inline-block, .mr-5;
+    }
+    input {
+      vertical-align: text-top;
+    }
+  }
+
+  &[class*="user"] {
+    @extend .container, .my-5, .p-0;
+  }
+}
+
+.btn {
+  @include buttonStyle($white, $pink, 2rem);
+}

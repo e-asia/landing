@@ -1,0 +1,27 @@
+.block--webform {
+  @extend .container-fluid, .mt-5;
+
+  background: $FormContactBackground;
+  height: inherit !important;
+
+  .block__content {
+    @extend .container, .p-0;
+
+    .webform-submission-form {
+      @extend .d-flex, .flex-wrap, .py-5, .px-0;
+    }
+  }
+}
+
+.webform-submission-contact-form {
+
+  .fieldset-legend {
+    @extend .d-none;
+  }
+
+  .form-checkboxes .form-group {
+    margin-bottom: 2rem;
+    margin-right: 2rem !important;
+  }
+
+}

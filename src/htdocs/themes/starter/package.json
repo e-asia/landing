@@ -1,0 +1,27 @@
+{
+  "name": "starter",
+  "description": "A theme based on core stark.",
+  "private": true,
+  "scripts": {
+    "setup": "npm install"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "~3.1.0",
+    "gulp-sass-glob": "1.0.8",
+    "gulp-scss-lint": "~0.4.0",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-uglify": "^2.1.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.13.0"
+  }
+}

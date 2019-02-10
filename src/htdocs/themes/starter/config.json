@@ -1,0 +1,29 @@
+{
+  "name": "starter",
+  "description": "A theme based on core stark.",
+  "css": {
+    "file" : "starter.style.min.css",
+    "src": [
+      "src/assets/scss/**/*.scss",
+      "src/components/**/*.scss",
+      "starter.imports.scss"
+    ],
+    "dest": "./"
+  },
+  "js": {
+    "file" : "starter.script.min.js",
+    "src": [
+      "node_modules/jquery/dist/jquery.min.js",
+      "node_modules/popper.js/dist/umd/popper.min.js",
+      "node_modules/bootstrap/dist/js/bootstrap.min.js",
+      "src/assets/js/**/*.js",
+      "src/components/**/*.js"
+    ],
+    "dest": "./"
+  },
+  "twig": {
+    "src": [
+      "src/components/**/*.twig"
+    ]
+  }
+}

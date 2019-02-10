@@ -1,0 +1,94 @@
+.block--languagedropdownswitcher {
+  @extend .col-1, .p-0, .mr-3;
+
+  max-width: 75px;
+
+  label {
+    display: none;
+  }
+
+  form {
+    @include media-breakpoint-down(xs) {
+      width: 55px;
+    }
+  }
+
+  ul {
+    @extend .m-0, .p-0;
+    list-style: none;
+  }
+
+  .block__content, form {
+    //width: 55% !important;
+    height: 55px !important;
+    @include media-breakpoint-up(md) {
+      height: 100% !important;
+    }
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    border: none;
+    text-transform: capitalize;
+    @include font-source($MainMenuLinkFontFamily, $MainMenuLinkFontSize, $MainMenuLinkColor);
+    text-align: -moz-center;
+    text-align: -webkit-center;
+    text-align: center;
+    text-align-last: center;
+    cursor: pointer;
+    outline: none;
+    overflow: visible;
+    display: inline-block;
+    padding: 0;
+    width: 100% !important;
+    background: transparent;
+    @include transitionDefault();
+
+    &:focus {
+      border: 0!important;
+      background: transparent;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 0.5rem;
+    }
+
+  }
+
+  .form-item {
+    &::after {
+      position: absolute;
+      right: 0;
+      top: 20px;
+      @include iconSvg( url("#{$pathImages}fleche.svg"), $MainMenuLinkHoverColor, 12px, 12px, false, middle, 90deg);
+
+      @include media-breakpoint-up(lg) {
+        top: 15px;
+      }
+    }
+  }
+
+  &:hover {
+    select {
+      color: $MainMenuLinkHoverColor !important;
+    }
+    .form-item {
+      &::after {
+        background-color: $MainMenuLinkHoverColor !important;
+      }
+    }
+  }
+}
+.page--front {
+  .block--languagedropdownswitcher {
+    select {
+      color: $white;
+    }
+    .form-item {
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+}

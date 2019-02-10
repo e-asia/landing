@@ -1,0 +1,15 @@
+.block--starter-footer {
+  a {
+    @include font-source('Century Gothic Bold', 11px, $white);
+    &::after {
+      content: "-";
+      margin: 0 10px;
+    }
+    .ext {
+      display: none;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

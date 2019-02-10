@@ -1,0 +1,205 @@
+// Ckeditor Special Mixin
+// -----------------------------------------------------------------------------
+
+@mixin CKEditor() {
+  overflow-x: hidden;
+
+  // Textes
+  @include font-source($BodyFontFamily, $BodyFontSize, $BodyColor);
+
+  // Links
+  a {
+    @include transitionDefault();
+    @include font-source($BodyLinkFontFamily, $BodyLinkFontSize, $BodyLinkColor);
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      @include font-source($BodyLinkHoverFontFamily, $BodyLinkHoverFontSize, $BodyLinkHoverColor);
+    }
+
+  }
+
+  .button, .btn {
+    @include buttonStyle($white, #5ca7ee, 0.25rem);
+  }
+
+  .arrow::after {
+    content: '';
+    mask: url("components/menu-main/fleche.svg") no-repeat center center;
+    background-color: $pink;
+    width: 22px;
+    height: 18px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 1rem;
+    vertical-align: middle;
+  }
+
+  // Titles
+  h1, .h1 {
+    @include font-source($H1FontFamily, $H1FontSizeMobile, $H1Color);
+    @include media-breakpoint-up(lg) {
+      @include font-source($H1FontFamily, $H1FontSize, $H1Color);
+    }
+  }
+
+  h2, .h2 {
+    @include font-source($H2FontFamily, $H2FontSizeMobile, $H2Color);
+    @include media-breakpoint-up(lg) {
+      @include font-source($H2FontFamily, $H2FontSize, $H2Color);
+    }
+  }
+
+  h3, .h3 {
+    @include font-source($H3FontFamily, $H3FontSizeMobile, $H3Color);
+    @include media-breakpoint-up(lg) {
+      @include font-source($H3FontFamily, $H3FontSize, $H3Color);
+    }
+  }
+
+  h4, .h4 {
+    @include font-source($H4FontFamily, $H4FontSizeMobile, $H4Color);
+    @include media-breakpoint-up(lg) {
+      @include font-source($H4FontFamily, $H4FontSize, $H4Color);
+    }
+  }
+
+  // List
+  ul {
+    @extend .m-0, .p-0, .list-inline;
+    list-style: none;
+
+    li {
+      @extend .list-inline-item;
+    }
+  }
+
+  // Quote
+
+
+  // Tableaux
+  table {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    thead {
+      tr {
+        border-bottom: 2px solid $grey;
+        th {
+
+          white-space: nowrap;
+          @include font-source('Century Gothic Regular', 22px);
+          &:first-child {
+            @include font-source(false);
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $black;
+        vertical-align: top;
+
+        td {
+          &:first-child {
+            @include font-source(false, 20px);
+          }
+          &:nth-child(3) {
+            white-space: nowrap;
+            @include font-source(false);
+          }
+          &:nth-child(4) {
+            @include font-source(false);
+            a {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    th, td {
+      padding-top: 0.5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 0;
+      border: 0;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+  }
+
+  // images
+  figure,
+  .embedded-entity {
+
+    .field__item {
+      display: inline-block;
+    }
+
+    &.align-left {
+      margin-right: 1rem;
+    }
+    &.align-right {
+      margin-left: 1rem;
+    }
+    .field__label {
+      display: none;
+    }
+    figcaption {
+      padding-left: 0.5rem;
+      margin-left: 0.5rem;
+      border-left: 1px solid $purple;
+      @include font-source('Century Gothic Bold Italic', 14px, $purple);
+    }
+    img {
+      @include media-breakpoint-down(xs) {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  // video
+  .video-embed-field-provider-youtube {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  .video-embed-field-lazy img {
+    height: auto;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
+}
+
+// Styles in CKEditor edit forms textarea
+// -----------------------------------------------------------------------------
+.cke_editable {
+  @include CKEditor();
+  padding: 1rem;
+}
+
+// FIX jquery modal display
+// -----------------------------------------------------------------------------
+.ui-dialog {
+  top: 50px !important;
+}

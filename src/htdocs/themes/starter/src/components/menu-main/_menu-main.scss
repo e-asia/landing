@@ -1,0 +1,83 @@
+.block--mainnavigation {
+  @extend .p-0, .pl-3, .d-none, .d-lg-block, .ml-auto, .mr-5;
+
+  .navbar-nav {
+    @extend .flex-row;
+
+    li {
+      @extend .mr-4;
+
+      a {
+        text-decoration: none;
+        outline: none;
+        white-space: nowrap;
+        @include transitionDefault();
+        @include font-source($MainMenuLinkFontFamily, $MainMenuLinkFontSize, $MainMenuLinkColor);
+
+        &:hover {
+          color: $MainMenuLinkHoverColor !important;
+        }
+
+        &::after {
+          display: none;
+        }
+
+        &.dropdown-toggle {
+          &::after {
+            content: '';
+            mask: url("assets/images/fleche.svg") no-repeat center center;
+            background-color: $purple;
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            vertical-align: middle;
+            transform: rotate(90deg);
+            @include transitionDefault();
+          }
+
+          &:hover::after {
+            background-color: $pink;
+          }
+        }
+      }
+    }
+
+    li:last-child {
+      margin-right: 0 !important;
+    }
+  }
+
+  .dropdown-menu {
+    @extend .p-3;
+
+    border: 0;
+    border-radius: inherit;
+
+    left: -16px !important;
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+  }
+
+}
+
+.page--front {
+  .block--mainnavigation {
+
+    .navbar-nav {
+
+      li {
+
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}

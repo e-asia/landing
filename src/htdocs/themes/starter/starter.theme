@@ -1,0 +1,302 @@
+<?php
+
+/**
+ * @file
+ * Theme functions.
+ */
+
+use Drupal\Component\Utility\Html;
+
+/**
+ * Append classes to a variables array.
+ *
+ * @param mixed $variables
+ *    Variables, e.g. from a hook argument.
+ * @param array $classes
+ *    Contains classes to append. Please normalize them before passing them.
+ */
+function starter__append_class(&$variables, array $classes) {
+  // Safety check.
+  if (!is_array($variables)) {
+    return;
+  }
+
+  if (!isset($variables['attributes']['class'])) {
+    $variables['attributes']['class'] = [];
+  }
+  $variables['attributes']['class'] = array_merge($variables['attributes']['class'], $classes);
+}
+
+/**
+ * Implements hook_preprocess_hook().
+ */
+function starter_preprocess_html(&$variables) {
+  // Add node id to the body class.
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node) {
+    $variables['attributes']['class'][] = 'node-' . $node->id();
+  }
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+  $path_alias = ltrim($path_alias, '/');
+  $variables['attributes']['class'][] = \Drupal\Component\Utility\Html::cleanCssIdentifier($path_alias);
+
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+    $variables['term_id'] = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function starter_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Check for BlockContent.
+  if ($variables['elements']['#configuration']['provider'] != 'block_content' || empty($variables['elements']['content']['#block_content'])) {
+    return;
+  }
+
+  // Get the block bundle.
+  $block_content = $variables['elements']['content']['#block_content'];
+  $bundle = $block_content->bundle();
+
+  $view_mode = $variables['elements']['#configuration']['view_mode'];
+
+  // Add to theme suggestions.
+  $suggestions[] = 'block__block_content__' . $bundle;
+  $suggestions[] = 'block__block_content__' . $view_mode;
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function starter_preprocess_block(&$variables) {
+  // Add id to template.
+  if (isset($variables['elements']['#id'])) {
+    $variables['id'] = str_replace('_', '-', $variables['elements']['#id']);
+  }
+
+  // Check for BlockContent.
+  if ($variables['elements']['#configuration']['provider'] != 'block_content' || empty($variables['elements']['content']['#block_content'])) {
+    return;
+  }
+
+  // Get the block bundle.
+  $block_content = $variables['elements']['content']['#block_content'];
+
+  // Add bundle to template.
+  $variables['bundle'] = $block_content->bundle();
+  $variables['view_mode'] = $variables['elements']['#configuration']['view_mode'];
+}
+
+/**
+ * Implements template_preprocess_block_content().
+ */
+function starter_preprocess_block_content(&$variables) {
+  // Helpful $content variable for templates.
+  $variables += array('content' => array());
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function starter_preprocess_field(&$variables) {
+  $element = $variables['element'];
+  $field_name = $element['#field_name'];
+  $bundle = $element['#bundle'];
+
+  // Add bundle to template.
+  $variables['bundle'] = $bundle;
+
+  // Add a clean field name without the field_BUNDLE_ prefix.
+  $safe_field_name_prefix = 'field_' . $bundle . '_';
+  $variables['field_name_clean'] = str_replace($safe_field_name_prefix, '', $field_name);
+
+  // Add classes.
+  starter__append_class($variables, [Html::getClass('field--' . $field_name)]);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function starter_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Add the navbar-form class.
+  $form['#attributes']['class'][] = 'navbar-form';
+
+  // Update the placeholder and size of field.
+  $form['keys']['#title'] = '';
+  $form['keys']['#size'] = 20;
+  $form['keys']['#placeholder'] = t('Search');
+}
+
+/**
+ * Implements hook_preprocess_input().
+ */
+function starter_preprocess_input(&$variables) {
+  $element = $variables['element'];
+  // Add the element type to the theme.
+  $variables['type'] = $element['#type'];
+}
+
+/**
+ * Implements template_preprocess_form_element().
+ */
+function starter_preprocess_form_element(&$variables) {
+  // Render the form element inside the label for checkbox and radio.
+  if (in_array($variables['element']['#type'], ['checkbox', 'radio'])) {
+    $variables['label']['#children'] = $variables['children'];
+    unset($variables['children']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function starter_preprocess_menu(&$variables, $hook) {
+  // No changes for menu toolbar.
+  if ($hook == 'menu__toolbar') {
+    return;
+  }
+
+  // Get the current path.
+  $current_path = \Drupal::request()->getRequestUri();
+
+  $items = $variables['items'];
+  foreach ($items as $key => $item) {
+    // If path is current_path, set active to li.
+    if ($item['url']->toString() == $current_path) {
+      // Add active link.
+      $variables['items'][$key]['attributes']['class'] = 'active';
+    }
+
+    if (count($item['below'])) {
+      $item['url']->setOption('html', TRUE);
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_menu_local_action().
+ */
+function starter_preprocess_menu_local_action(&$variables) {
+  // Add button classes.
+  $variables['link']['#options']['attributes']['class'][] = 'btn';
+  $variables['link']['#options']['attributes']['class'][] = 'btn-default';
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function starter_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  // Add a suggestion based on the view name and the current display.
+  $view = $variables['view'];
+  $name = $view->id();
+  $display = $view->current_display;
+  $suggestions[] = 'views_view__' . $name;
+  $suggestions[] = 'views_view__' . $name . '__' . $display;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function starter_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
+  // Add a suggestion based on the view name and the current display.
+  $view = $variables['view'];
+  $name = $view->id();
+  $display = $view->current_display;
+  $suggestions[] = 'views_view_unformatted__' . $name . '__' . $display;
+}
+
+/**
+ * Implements template_preprocess_views_view_table().
+ */
+function starter_preprocess_views_view_table(&$variables) {
+  // Add Bootstrap table classes.
+  $variables['classes_array'] = array_merge($variables['classes_array'], array(
+    'table',
+    'table-striped',
+    'table-bordered',
+  ));
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function starter_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']) && isset($variables['element']['#type']) && $variables['element']['#type'] == 'form') {
+    $original_theme_hook = $variables['theme_hook_original'];
+
+    $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements template_preprocess_links().
+ */
+function starter_preprocess_links(&$variables) {
+  // Added for geysir module button links:
+  // https://www.drupal.org/project/geysir/issues/2923273
+  //
+  // @deprecated in Drupal 8.0.x and will be removed before 9.0.0. This feature
+  // of adding a class based on the associative key can cause CSS class name
+  // conflicts.
+  if (!empty($variables['links'])) {
+    foreach ($variables['links'] as $key => $value) {
+      if (!is_numeric($key)) {
+        $class = Html::getClass($key);
+        $variables['links'][$key]['attributes']->addClass($class);
+      }
+    }
+  }
+}
+
+/**
+ * Implements theme_suggestions_region().
+ */
+function starter_theme_suggestions_region(array $variables) {
+  $path_args = explode('/', Url::fromRoute('<current>')->getInternalPath());
+  $suggestions = [];
+  if(count($path_args) >=2 && $path_args[0] == 'node' && $node = Node::load($path_args[1])) {
+    $suggestions[] = $variables['theme_hook_original'].'__'.$variables['elements']['#region'].'__' .$node->getType();
+  }
+  return $suggestions;
+}
+
+function starter_preprocess_paragraph(&$vars) {
+    if ($vars['paragraph']->hasField('field_gallery') && $vars['paragraph']->getType() == 'gallery' && count($vars['content']['field_gallery'])) {
+        $stylePerPosition = [
+            0 => 'scale_crop_625x400',
+            1 => 'scale_crop_306x255',
+            2 => 'scale_crop_306x255',
+            3 => 'scale_crop_306x255',
+            4 => 'scale_crop_306x255',
+            5 => 'scale_crop_300x400',
+            6 => 'scale_crop_300x400',
+            7 => 'scale_crop_410x255',
+            8 => 'scale_crop_410x255',
+            9 => 'scale_crop_410x255',
+        ];
+        if (count($vars['content']['field_gallery'])) {
+
+            $vars['content']['field_gallery_layout'] = $vars['content']['field_gallery'];
+
+            foreach ($vars['content']['field_gallery_layout'] as $key => $img) {
+                if (is_int($key)) {
+                    if (isset($stylePerPosition [$key])) {
+                        $style = $stylePerPosition [$key];
+                    } else {
+                        $style = 'thumbnail';
+                    }
+                    $vars['content']['field_gallery_layout'][$key]['#image_style'] = $style;
+                }
+            }
+        }
+    }
+}

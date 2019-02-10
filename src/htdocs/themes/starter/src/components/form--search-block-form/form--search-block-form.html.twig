@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set classes = [
+'form-inline',
+'my-2',
+'my-sm-0'
+]
+%}
+<form{{ attributes.addClass(classes) }}>
+  {{ children }}
+</form>

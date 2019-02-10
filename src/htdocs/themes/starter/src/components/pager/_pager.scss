@@ -1,0 +1,15 @@
+.pager {
+  display: inline-block;
+  width: 100%;
+  margin-top: 1rem;
+  @include font-source('Century Gothic Regular', 13px);
+ 
+  .page-link {
+    color: $black;
+  }
+
+  .page-item.active .page-link {
+    background-color: $black;
+    border-color: $black;
+  }
+}

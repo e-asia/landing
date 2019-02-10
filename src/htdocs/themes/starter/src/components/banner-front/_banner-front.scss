@@ -1,0 +1,62 @@
+.block-content--bannerfront {
+  height: -webkit-fill-available;
+
+  .contextual {
+    top: 50%;
+  }
+}
+
+.banner-front {
+
+  &__field-image {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+
+    img {
+      height: 100vh;
+      @include transitionDefault();
+      margin-left: -50%;
+      @media (orientation: landscape) {
+        width: 100vw;
+        margin-left: 0!important;
+      }
+
+      @include media-breakpoint-up(sm) {
+        margin-left: -40%;
+      }
+      @include media-breakpoint-up(md) {
+        margin-left: -30%;
+      }
+      @include media-breakpoint-up(lg) {
+        margin-left: -20%;
+      }
+      @include media-breakpoint-up(xl) {
+        margin-left: 0;
+      }
+
+    }
+  }
+
+  &__body {
+    h2, h3, h4 {
+      color: $white;
+    }
+    @extend .container, .pl-sm-0, .px-3;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    top: 22% !important;
+    margin-top: 0 !important;
+    @include media-breakpoint-up(xl) {
+      padding-right: 32% !important;
+      top: 30% !important;
+    }
+    li {
+      @extend .mb-2;
+    }
+  }
+}

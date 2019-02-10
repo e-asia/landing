@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Template for the main page.
+ */
+#}
+<header role="header">
+    <div class="header-wrapper">
+        {{ page.header }}
+    </div>
+</header>
+
+<div role="banner" class="banner">
+    {{ page.banner }}
+</div>
+
+<main role="main" class="main">
+    <div class="main-wrapper">
+        {{ page.content }}
+    </div>
+</main>
+
+{% if page.footer %}
+    <footer role="footer">
+        <div class="footer-wrapper">
+            {{ page.footer }}
+        </div>
+    </footer>
+{% endif %}

@@ -1,0 +1,40 @@
+.block--breadcrumbs-2 {
+  @extend .container, .p-0;
+
+  position: relative;
+  z-index: 1;
+
+  .breadcrumb {
+    background: none;
+    margin: 0;
+    @include media-breakpoint-up(md) {
+      padding-left: 0;
+    }
+
+    li {
+      position: relative;
+      padding-right: 0.75rem;
+      margin-right: 0.5rem;
+      @include font-source($BreadcrumbFontFamily, $BreadcrumbFontSize, $BreadcrumbColor);
+
+      &::after {
+        content: ">";
+        position: absolute;
+        right: 0;
+      }
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    a {
+      @include font-source($BreadcrumbFontFamily, $BreadcrumbFontSize, $BreadcrumbColor);
+
+      text-decoration: none;
+      margin-right: 5px;
+    }
+  }
+
+}

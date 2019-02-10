@@ -1,0 +1,150 @@
+$pathImages: 'src/assets/images/';
+// Common
+// -----------------------------------------------------------------------------
+$white: #fff;
+$blackLight: #111111;
+$black: #000;
+$greyLight: #f9f8f8;
+$grey: #a7a7a7;
+$greyMedium: #e2dbdf;
+
+// Specific
+// -----------------------------------------------------------------------------
+$pink: #ff198b;
+$purple: #5b4853;
+
+// Page
+// -----------------------------------------------------------------------------
+$BodyFontFamily: 'varela_roundregular';
+$BodyFontSize: 1rem;
+$BodyColor: #5b4853;
+
+$BodyLinkFontFamily: false;
+$BodyLinkFontSize: 1rem;
+$BodyLinkColor: #5ca7ee;
+
+$BodyLinkHoverFontFamily: false;
+$BodyLinkHoverFontSize: false;
+$BodyLinkHoverColor: #5ca7ee;
+
+$HeaderBackground: #f9f8f8;
+$HeaderBackgroundFront: transparent;
+
+// Titles
+// -----------------------------------------------------------------------------
+$H1FontFamily: 'varela_roundregular';
+$H1FontSizeMobile: 1.7rem;
+$H1FontSize: 2.2rem;
+$H1Color: #fff;
+$H1FontFamilyFront: 'varela_roundregular';
+$H1FontSizeFrontMobile: 1.7rem;
+$H1FontSizeFront: 2.2rem;
+$H1ColorFront: #fff;
+
+$H2FontFamily: 'varela_roundregular';
+$H2FontSizeMobile: 1.2rem;
+$H2FontSize: 1.6rem;
+$H2Color: #5ca7ee;
+
+$H3FontFamily: 'varela_roundregular';
+$H3FontSizeMobile: 1.2rem;
+$H3FontSize: 1.4rem;
+$H3Color: #5b4853;
+
+$H4FontFamily: 'varela_roundregular';
+$H4FontSizeMobile: 1.2rem;
+$H4FontSize: 1.2rem;
+$H4Color: #5ca7ee;
+
+// Branding
+// -----------------------------------------------------------------------------
+$SiteNameFontFamily: 'varela_roundregular';
+$SiteNameFontSize: 1.4rem;
+$SiteNameColor: inherit;
+
+$SloganFontFamily: 'varela_roundregular';
+$SloganFontSize: 0.8rem;
+$SloganColor: #fff;
+
+// Home Header
+// -----------------------------------------------------------------------------
+$HomeHeaderTitleFontFamily: 'varela_roundregular';
+$HomeHeaderTitleFontSize: 21rem;
+$HomeHeaderTitleColor: #fff;
+
+$HomeHeaderSubtitleFontFamily: 'varela_roundregular';
+$HomeHeaderSubtitleFontSize: 2.2rem;
+$HomeHeaderSubtitleColor: #fff;
+
+$CopyrightFontFamily: 'varela_roundregular';
+$CopyrightFontSize: 1.6rem;
+$CopyrightColor: #fff;
+
+// Advanced text editor default
+// -----------------------------------------------------------------------------
+$FooterLinkColor: #5b4853;
+
+// Menu main
+// -----------------------------------------------------------------------------
+$MainMenuLinkFontFamily: 'varela_roundregular';
+$MainMenuLinkFontSize: 1.4rem;
+$MainMenuLinkColor: #5ca7ee;
+
+$MainMenuLinkHoverColor: #5ca7ee;
+
+// Menu contact
+// -----------------------------------------------------------------------------
+$MenuContactBackground: #ff198b;
+
+// Form contact
+// -----------------------------------------------------------------------------
+$FormContactBackground: #e2dbdf;
+
+// Banner taxo
+// -----------------------------------------------------------------------------
+$BannerTaxoTitleFontFamily: 'varela_roundregular';
+$BannerTaxoTitleFontSize: 3.8rem;
+$BannerTaxoTitleColor: #fff;
+
+$BannerTaxoSubtitleFontFamily: 'varela_roundregular';
+$BannerTaxoSubtitleFontSize: 2.2rem;
+$BannerTaxoSubtitleColor: #fff;
+
+// Breadcrumb
+// -----------------------------------------------------------------------------
+$BreadcrumbFontFamily: 'varela_roundregular';
+$BreadcrumbFontSize: 0.9rem;
+$BreadcrumbColor: #5b4853;
+
+// Form
+// -----------------------------------------------------------------------------
+$FormLabelFontFamily: 'varela_roundregular';
+$FormLabelFontSize: 1.2rem;
+$FormLabelColor: #5ca7ee;
+
+$FormControlBackground: $greyLight;
+$FormControlBorderColor: transparent;
+
+// Footer
+// -----------------------------------------------------------------------------
+$FooterBackground: transparent;
+
+$FooterTitleFontFamily: 'varela_roundregular';
+$FooterTitleFontSize: 1.6rem;
+$FooterTitleColor: #fff;
+
+$FooterLinkFontFamily: 'varela_roundregular';
+$FooterLinkFontSize: 1.2rem;
+$FooterLinkColor: #fff;
+
+$FooterTextFontFamily: 'varela_roundregular';
+$FooterTextFontSize: 1.2rem;
+$FooterTextColor: #ccc;
+
+// Loader
+// -----------------------------------------------------------------------------
+$LoaderFontFamily: 'FontAwesome';
+$LoaderFontSize: 1rem;
+$LoaderColor: #5b4853;
+
+$LoaderIcon: '\f110';

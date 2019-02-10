@@ -1,0 +1,158 @@
+body {
+  @include CKEditor();
+
+  .visually-hidden, #toolbar-administration {
+    display: none;
+  }
+
+  // HEADER
+  header[role="header"] {
+    @extend .px-0;
+
+    background: $HeaderBackground;
+    z-index: 1000;
+    position: relative;
+
+    .header-wrapper {
+      @extend .container-fluid, .d-flex, .flex-wrap, .align-items-center, .p-0;
+    }
+
+    .hamburger {
+      height:55px;
+      width: 55px;
+      background: $pink;
+      color: $white;
+      border-radius: 0;
+      outline: none;
+
+      @include media-breakpoint-up(sm) {
+        height: 72px;
+        width: 86px;
+      }
+      &-inner, &-inner::after, &-inner::before {
+        background-color: $white;
+        border-radius: 0;
+        height: 1px;
+        width: 35px;
+      }
+      &-box {
+        width: 35px;
+      }
+      &-label {
+        text-transform: uppercase;
+      }
+    }
+
+  }
+
+  #navbarNav {
+    margin-top: 55px;
+
+    @include media-breakpoint-up(sm) {
+      margin-top: 72px;
+    }
+  }
+
+  .block--starter-page-title {
+    @extend .container, .px-3, .p-sm-0, .mt-5;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  // BANNER
+  .banner {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+
+    .block {
+      flex-basis: auto !important;
+    }
+  }
+
+  // MAIN
+  main {
+    @extend .container-fluid, .px-0, .d-flex, .flex-wrap;
+    .main-wrapper {
+      @extend .w-100;
+      position: relative;
+
+      article {
+        @extend .container, .px-3, .px-sm-0, .py-4;
+      }
+    }
+  }
+
+  // FOOTER
+  footer[role="footer"] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 28px;
+    overflow: hidden;
+
+    .footer-wrapper {
+      @extend .container, .px-3, .px-sm-0, .px-xl-0, .d-flex, .flex-wrap, .flex-column, .flex-lg-row, .py-4;
+
+      div.block, .block-content, .block--navigationprincipale-2 {
+        @extend .mb-4, .mb-lg-0;
+        @include media-breakpoint-up(lg) {
+          flex-grow: 1;
+          flex-basis: 0;
+          max-width: 100%;
+          padding-left: 0;
+        }
+      }
+      .block__title, h3, h4 {
+        @include font-source($FooterTitleFontFamily, $FooterTitleFontSize, $FooterTitleColor);
+      }
+
+    }
+
+    .container-fluid {
+      background: $FooterBackground;
+    }
+  }
+
+  &.page--front .banner {
+    @extend .pb-5;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: inherit;
+  }
+
+  &.page--front main {
+    @extend .py-4, .py-md-5;
+  }
+
+  &.page--front .block--starter-page-title {
+    position: relative;
+  }
+
+  &.page--front h1 {
+    @include font-source($H1FontFamilyFront, $H1FontSizeFrontMobile, $H1ColorFront);
+    @include media-breakpoint-up(lg) {
+      @include font-source($H1FontFamilyFront, $H1FontSizeFront, $H1ColorFront);
+    }
+  }
+
+  &.page--front header[role="header"] {
+    background: $HeaderBackgroundFront;
+  }
+
+  &.page--front footer[role="footer"] {
+    .footer {
+      a {
+        color: $white;
+      }
+    }
+  }
+
+}

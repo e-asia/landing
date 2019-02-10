@@ -1,0 +1,55 @@
+// Branding Header
+.block--starter-branding {
+  @extend .col-8, .col-sm-6, .p-3;
+
+  .site-name {
+    @include font-source($SiteNameFontFamily, 1.4rem, $SiteNameColor);
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 5rem;
+      @include font-source($SiteNameFontFamily, $SiteNameFontSize, $SiteNameColor);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $BodyLinkHoverColor;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    &::before {
+      @include iconSvg( url("logo.svg"), $BodyLinkHoverColor, 50px, 50px, false, middle);
+      @include media-breakpoint-up(lg) {
+        @include iconSvg( url("logo.svg"), $BodyLinkHoverColor, 50px, 50px, false, middle);
+      }
+    }
+
+    img {
+      display: none;
+    }
+
+  }
+
+}
+
+// PAGE FRONT
+.page--front {
+  .block--starter-branding {
+    a {
+      color: $white;
+      &::before {
+        @include iconSvg( url("logo.svg"), $white, 50px, 50px, false, middle);
+        @include media-breakpoint-up(lg) {
+          @include iconSvg( url("logo.svg"), $white, 50px, 50px, false, middle);
+        }
+      }
+
+      &:hover {
+        color: $BodyLinkHoverColor;
+        &::before {
+          background-color: $BodyLinkHoverColor;
+        }
+      }
+    }
+  }
+}
