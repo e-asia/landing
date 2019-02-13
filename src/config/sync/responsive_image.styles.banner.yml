@@ -1,0 +1,67 @@
+uuid: bce61a8d-5dfe-4f35-b615-f9e3996ea244
+langcode: fr
+status: true
+dependencies:
+  config:
+    - image.style.banner_lg
+    - image.style.banner_md
+    - image.style.banner_sm
+    - image.style.banner_xl
+    - image.style.banner_xs
+  theme:
+    - starter
+id: banner
+label: Banner
+image_style_mappings:
+  -
+    breakpoint_id: xl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_xl
+  -
+    breakpoint_id: xl
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: banner_xl
+  -
+    breakpoint_id: lg
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_lg
+  -
+    breakpoint_id: lg
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: banner_lg
+  -
+    breakpoint_id: md
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_md
+  -
+    breakpoint_id: md
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: banner_md
+  -
+    breakpoint_id: sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_sm
+  -
+    breakpoint_id: sm
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: banner_sm
+  -
+    breakpoint_id: xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_xs
+  -
+    breakpoint_id: xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: banner_xs
+breakpoint_group: starter
+fallback_image_style: banner_xs

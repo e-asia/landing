@@ -2,6 +2,7 @@
   @extend .col-1, .p-0, .mr-3;
 
   max-width: 75px;
+  max-height: 33px;
 
   label {
     display: none;
@@ -16,6 +17,10 @@
   ul {
     @extend .m-0, .p-0;
     list-style: none;
+  }
+
+  .form-item-lang-dropdown-select {
+    position: relative;
   }
 
   .block__content, form {
@@ -50,22 +55,14 @@
       background: transparent;
     }
 
-    @include media-breakpoint-down(xs) {
-      margin-top: 0.5rem;
-    }
-
   }
 
   .form-item {
     &::after {
       position: absolute;
       right: 0;
-      top: 20px;
+      top: 5px;
       @include iconSvg( url("#{$pathImages}fleche.svg"), $MainMenuLinkHoverColor, 12px, 12px, false, middle, 90deg);
-
-      @include media-breakpoint-up(lg) {
-        top: 15px;
-      }
     }
   }
 

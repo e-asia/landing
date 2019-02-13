@@ -1,0 +1,15 @@
+uuid: e770253f-9820-4978-bc81-c442b22ddb6c
+langcode: fr
+status: true
+dependencies: {  }
+name: banner_xl
+label: 'Banner xl'
+effects:
+  0af7330e-ea21-4697-8818-d3fab10e3de8:
+    uuid: 0af7330e-ea21-4697-8818-d3fab10e3de8
+    id: image_scale
+    weight: 1
+    data:
+      width: 1980
+      height: null
+      upscale: false

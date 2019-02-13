@@ -1,0 +1,31 @@
+uuid: eea4dbbb-5581-49ab-9264-4e57c43c4fe7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_front:ec0be23c-5b4d-4f9e-99f5-4f4fdd060156'
+  module:
+    - block_content
+    - system
+  theme:
+    - starter
+id: bannerfront
+theme: starter
+region: banner
+weight: -6
+provider: null
+plugin: 'block_content:ec0be23c-5b4d-4f9e-99f5-4f4fdd060156'
+settings:
+  id: 'block_content:ec0be23c-5b4d-4f9e-99f5-4f4fdd060156'
+  label: 'Banner Front'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,31 @@
+uuid: da416d50-0a27-43f1-b2e1-3bd7c584acb2
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_front:d97e3c34-f648-4201-bde5-3c82b08f122b'
+  module:
+    - block_content
+    - system
+  theme:
+    - starter
+id: banneruser
+theme: starter
+region: banner
+weight: -4
+provider: null
+plugin: 'block_content:d97e3c34-f648-4201-bde5-3c82b08f122b'
+settings:
+  id: 'block_content:d97e3c34-f648-4201-bde5-3c82b08f122b'
+  label: 'Banner User'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user\r\n/user/*"
+    negate: false
+    context_mapping: {  }

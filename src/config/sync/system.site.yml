@@ -1,0 +1,14 @@
+uuid: 4adb31b4-d142-41c6-8ae0-d161c5be7eeb
+name: Landing
+mail: jeremydouchamps@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

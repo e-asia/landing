@@ -51,8 +51,11 @@
     z-index: 2;
     top: 22% !important;
     margin-top: 0 !important;
+    @include media-breakpoint-up(lg) {
+      max-width: 50%;
+    }
     @include media-breakpoint-up(xl) {
-      padding-right: 32% !important;
+      max-width: 40%;
       top: 30% !important;
     }
     li {

@@ -1,0 +1,8 @@
+settings:
+  confirmation_message: 'Votre message a été envoyé.'
+handlers:
+  email_confirmation:
+    label: 'Courriel de confirmation'
+  email_notification:
+    label: 'Notification par courriel'
+elements: "name:\n  '#title': 'Votre Nom'\nemail:\n  '#title': 'Votre Email'\nactions:\n  '#submit__label': Envoyer\n"

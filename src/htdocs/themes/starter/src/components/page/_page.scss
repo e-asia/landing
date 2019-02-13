@@ -54,7 +54,7 @@ body {
   }
 
   .block--starter-page-title {
-    @extend .container, .px-3, .p-sm-0, .mt-5;
+    @extend .container, .px-0, .mt-5;
     position: absolute;
     margin: auto;
     left: 0;
@@ -95,7 +95,11 @@ body {
     overflow: hidden;
 
     .footer-wrapper {
-      @extend .container, .px-3, .px-sm-0, .px-xl-0, .d-flex, .flex-wrap, .flex-column, .flex-lg-row, .py-4;
+      @extend .container-fluid, .px-3, .d-flex, .flex-wrap, .flex-column, .flex-lg-row, .py-4;
+
+      .block--footer {
+        @extend .ml-auto;
+      }
 
       div.block, .block-content, .block--navigationprincipale-2 {
         @extend .mb-4, .mb-lg-0;

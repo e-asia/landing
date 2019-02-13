@@ -1,0 +1,31 @@
+uuid: d196ba62-6308-474c-8815-c5081501bc6e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  title: '[site:name] - [current-page:title]'
+  content_language: en
+  robots: 'index, follow'
+  canonical_url: '[current-page:url]'
+  description: 'Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Nullam dictum felis eu pede mollis pretium. Quisque rutrum. Ut a nisl id ante tempus hendrerit. Sed fringilla mauris sit amet nibh.'
+  geo_region: TH
+  abstract: 'Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Nullam dictum felis eu pede mollis pretium. Quisque rutrum. Ut a nisl id ante tempus hendrerit. Sed fringilla mauris sit amet nibh.'
+  og_type: website
+  og_image: '[site:url]/themes/custom/starter/logo.svg'
+  og_image_url: '[site:url]/themes/custom/starter/logo.svg'
+  og_image_alt: '[site:name]'
+  og_url: '[current-page:url]'
+  og_description: 'Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Nullam dictum felis eu pede mollis pretium. Quisque rutrum. Ut a nisl id ante tempus hendrerit. Sed fringilla mauris sit amet nibh.'
+  og_site_name: '[site:name]'
+  og_locale_alternative: fr_FR
+  og_title: '[current-page:title]'
+  schema_web_page_type: WebPage
+  schema_web_page_breadcrumb: 'Yes'
+  schema_web_page_description: '[current-page:title]'
+  schema_web_site_url: '[site:url]'
+  schema_web_site_type: WebSite
+  schema_web_site_name: '[site:name]'

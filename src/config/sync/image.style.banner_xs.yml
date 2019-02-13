@@ -1,0 +1,15 @@
+uuid: eb8a32ba-6f6a-4c03-94d8-0a2011d542f0
+langcode: fr
+status: true
+dependencies: {  }
+name: banner_xs
+label: 'Banner xs'
+effects:
+  74cb79a4-24c5-4987-8f24-a76f0d315d5a:
+    uuid: 74cb79a4-24c5-4987-8f24-a76f0d315d5a
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 812
+      upscale: true

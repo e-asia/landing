@@ -1,0 +1,28 @@
+uuid: d9d0f653-9b56-4cb5-8034-79443fdc179e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - starter
+_core:
+  default_config_hash: 4QlSnWBcxxKMIFRM8sbu_MjSkcp3NjGgnVrc-lynQHI
+id: starter_login
+theme: starter
+region: content
+weight: -1
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
+    context_mapping: {  }

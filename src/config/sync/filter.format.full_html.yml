@@ -1,0 +1,23 @@
+uuid: e757af05-aa38-4af3-8a6d-1ae6ba935dfc
+langcode: en
+status: true
+dependencies: {  }
+name: 'Full Html'
+format: full_html
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt data-entity-type data-entity-uuid> <p> <pre> <a href hreflang class="btn"> <u> <iframe src width height frameborder style allowfullscreen> <li class="list-inline">'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }

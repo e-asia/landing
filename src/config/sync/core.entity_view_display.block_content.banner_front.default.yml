@@ -1,0 +1,35 @@
+uuid: 43cd69eb-a14c-42b2-af00-3e8201e8cab4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_front
+    - field.field.block_content.banner_front.body
+    - field.field.block_content.banner_front.field_image
+    - responsive_image.styles.banner
+  module:
+    - responsive_image
+    - text
+id: block_content.banner_front.default
+targetEntityType: block_content
+bundle: banner_front
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      responsive_image_style: banner
+      image_link: ''
+    third_party_settings: {  }
+    type: responsive_image
+    region: content
+hidden:
+  langcode: true

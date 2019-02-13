@@ -1,0 +1,15 @@
+uuid: d5ced7d6-d103-4074-a956-25cc8c751140
+langcode: fr
+status: true
+dependencies: {  }
+name: banner_sm
+label: 'Banner sm'
+effects:
+  8985a5a3-f852-403b-beea-5119d6f90662:
+    uuid: 8985a5a3-f852-403b-beea-5119d6f90662
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 812
+      upscale: true

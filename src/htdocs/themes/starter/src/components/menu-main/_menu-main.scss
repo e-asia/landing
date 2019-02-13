@@ -1,5 +1,5 @@
 .block--mainnavigation {
-  @extend .p-0, .pl-3, .d-none, .d-lg-block, .ml-auto, .mr-5;
+  @extend .p-0, .pl-3, .d-none, .d-sm-block, .ml-auto, .mr-5;
 
   .navbar-nav {
     @extend .flex-row;

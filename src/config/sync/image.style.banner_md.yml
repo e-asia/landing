@@ -1,0 +1,15 @@
+uuid: 05475dbf-bde8-4d8e-b7a4-80a61357f218
+langcode: fr
+status: true
+dependencies: {  }
+name: banner_md
+label: 'Banner md'
+effects:
+  96e673b5-b67c-46f7-aaaa-d58411aaf226:
+    uuid: 96e673b5-b67c-46f7-aaaa-d58411aaf226
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 1024
+      upscale: true

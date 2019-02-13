@@ -1,0 +1,31 @@
+uuid: 893ede07-f466-4f27-b5f4-fc6d56550b9b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_front:9b2ce342-ee97-43c9-8a40-c127fb30c186'
+  module:
+    - block_content
+    - system
+  theme:
+    - starter
+id: bannerabout
+theme: starter
+region: banner
+weight: -5
+provider: null
+plugin: 'block_content:9b2ce342-ee97-43c9-8a40-c127fb30c186'
+settings:
+  id: 'block_content:9b2ce342-ee97-43c9-8a40-c127fb30c186'
+  label: 'Banner About'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/2
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,8 @@
+uuid: 8e9c45e6-a41f-4fc1-8472-a3c41943a486
+langcode: en
+status: true
+dependencies: {  }
+id: banner_front
+label: 'Banner front'
+revision: 0
+description: ''
